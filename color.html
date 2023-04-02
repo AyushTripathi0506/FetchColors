@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Page</title>
+    <link rel = "stylesheet" href="color.css">
+</head>
+<body>
+    <div class = "top-color">
+        <div class = "color-box">
+            <div class = "color-red">
+                
+            </div>
+        </div>
+        <div class = "color-box">
+            <div class = "color-yellow">
+                
+            </div>
+        </div>
+        <div class = "color-box">
+            <div class = "color-blue">
+                
+            </div>
+        </div>
+        <div class = "color-box">
+            <div class = "color-green">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class = "top-text">
+        <div class = "color-text">red</div>
+        <div class = "color-text">yellow</div>
+        <div class = "color-text">blue</div>
+        <div class = "color-text">green</div>
+    </div>
+
+    <div class = "top-color">
+        <div class = "color-box">
+            <div class = "color-purple">
+            </div>
+        </div>
+        <div class = "color-box">
+            <div class = "color-orange">
+                
+            </div>
+        </div>
+        <div class = "color-box">
+            <div class = "color-brown">
+                
+            </div>
+        </div>
+        <div class = "color-box">
+            <div class = "color-pink">
+                
+            </div>
+        </div>
+    </div>
+    <div class = "top-text">
+        <div class = "color-text">purple</div>
+        <div class = "color-text">orange</div>
+        <div class = "color-text">brown</div>
+        <div class = "color-text">pink</div>
+    </div>
+
+    <script>
+        const divIds = ['.color-red', '.color-yellow', '.color-blue', '.color-green', '.color-purple', '.color-orange', '.color-brown', '.color-pink'];
+        for (let i = 0; i < divIds.length; i++) {
+            fetch('colors.json')
+                .then(response => response.json())
+                .then(data => {
+                    let x = divIds[i];
+                    let colorData = data.red;
+                    if (i === 0) {
+                        colorData = data.red;
+                    } else if (i===1) {
+                        colorData = data.yellow;
+                    } else if (i===2) {
+                        colorData = data.blue;
+                    } else if (i===3) {
+                        colorData = data.green;
+                    } else if (i===4) {
+                        colorData = data.purple;
+                    } else if (i===5) {
+                        colorData = data.orange;
+                    } 
+                    else if (i===6) {
+                        colorData = data.brown;
+                    } 
+                    else if (i===7) {
+                        colorData = data.pink;
+                    } 
+                    let div = document.querySelector(x);
+                    div.style.backgroundColor = colorData;
+                });
+        }
+
+    </script>
+</body>
+</html>
